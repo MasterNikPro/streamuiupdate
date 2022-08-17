@@ -15,7 +15,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return const MaterialApp(
       home: Scaffold(
-        body: Text("some text"),
+        body: Text("text"),
       ),
     );
   }
