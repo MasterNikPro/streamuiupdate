@@ -1,16 +1,16 @@
 import 'dart:convert';
-import 'dart:js_util/js_util_wasm.dart';
 
 import 'package:http/http.dart' as http;
 
 class CurrencyApi {
-
-
+   static const _key = '4fe49fbf4baf5a7b866ecbbc5622f468';
   static Stream<double> getPrice() =>
       Stream.periodic(const Duration(seconds: 5)).asyncMap((_) => getPrices());
+
   static Future<double> getPrices() async {
+
     const url =
-        'https://api.nomics.com/v1/currencies/ticker?key=your-key-here&ids=BTC,ETH,XRP&interval=1d,30d&convert=EUR&platform-currency=ETH&per-page=100&page=1';
+        'https://api.nomics.com/v1/currencies/ticker?key=$_key&ids=BTC&interval=1d';
 
     final response = await http.get(Uri.parse(url));
     final body = json.decode(response.body).first;
